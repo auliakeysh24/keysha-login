@@ -1,0 +1,208 @@
+<!DOCTYPE html>  <html lang="id">  
+<head>  
+<meta charset="UTF-8">  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  
+<title>Keysha Login</title>  <style>  
+* {  
+    margin: 0;  
+    padding: 0;  
+    box-sizing: border-box;  
+    font-family: 'Segoe UI', sans-serif;  
+}  
+  
+body {  
+    min-height: 100vh;  
+    display: flex;  
+    justify-content: center;  
+    align-items: center;  
+    background: radial-gradient(circle at top, #29205c, #090914 65%);  
+    color: white;  
+    padding: 20px;  
+}  
+  
+.login-box {  
+    width: 100%;  
+    max-width: 380px;  
+    padding: 38px 30px;  
+    background: rgba(255,255,255,0.07);  
+    border: 1px solid rgba(255,255,255,0.13);  
+    border-radius: 24px;  
+    backdrop-filter: blur(20px);  
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);  
+}  
+  
+.logo {  
+    width: 65px;  
+    height: 65px;  
+    margin: 0 auto 20px;  
+    display: grid;  
+    place-items: center;  
+    border-radius: 20px;  
+    background: linear-gradient(135deg,#8b5cf6,#ec4899);  
+    font-size: 28px;  
+}  
+  
+h2 {  
+    text-align: center;  
+    font-size: 27px;  
+    margin-bottom: 8px;  
+}  
+  
+.subtitle {  
+    text-align: center;  
+    color: #aaa6c4;  
+    font-size: 13px;  
+    margin-bottom: 30px;  
+}  
+  
+label {  
+    display: block;  
+    font-size: 13px;  
+    margin: 17px 0 8px;  
+    color: #d5d1e8;  
+}  
+  
+input {  
+    width: 100%;  
+    padding: 15px;  
+    border-radius: 12px;  
+    border: 1px solid #37334e;  
+    outline: none;  
+    background: #171629;  
+    color: white;  
+    font-size: 14px;  
+}  
+  
+input:focus {  
+    border-color: #a78bfa;  
+    box-shadow: 0 0 10px #8b5cf644;  
+}  
+  
+.password-wrap {  
+    position: relative;  
+}  
+  
+.password-wrap input {  
+    padding-right: 65px;  
+}  
+  
+.toggle {  
+    position: absolute;  
+    right: 13px;  
+    top: 50%;  
+    transform: translateY(-50%);  
+    color: #b9a5ff;  
+    cursor: pointer;  
+    font-size: 12px;  
+}  
+  
+button {  
+    width: 100%;  
+    margin-top: 27px;  
+    padding: 15px;  
+    border: none;  
+    border-radius: 12px;  
+    background: linear-gradient(135deg,#8b5cf6,#d946ef);  
+    color: white;  
+    font-size: 15px;  
+    font-weight: bold;  
+    cursor: pointer;  
+    transition: .3s;  
+}  
+  
+button:active {  
+    transform: scale(.97);  
+}  
+  
+button:hover {  
+    opacity: .85;  
+}  
+  
+#message {  
+    text-align: center;  
+    font-size: 13px;  
+    margin-top: 18px;  
+    min-height: 18px;  
+}  
+  
+.footer {  
+    text-align: center;  
+    margin-top: 28px;  
+    color: #77738e;  
+    font-size: 11px;  
+}  
+</style>  </head>  <body>  <div class="login-box">  <div class="logo">✦</div>  
+
+<h2>Welcome Back</h2>  
+<p class="subtitle">Silakan login untuk melanjutkan</p>  
+
+<form id="loginForm">  
+
+    <label>Username</label>  
+    <input  
+        type="text"  
+        id="username"  
+        placeholder="Masukkan username"  
+        required  
+    >  
+
+    <label>Password</label>  
+    <div class="password-wrap">  
+        <input  
+            type="password"  
+            id="password"  
+            placeholder="Masukkan password"  
+            required  
+        >  
+        <span class="toggle" onclick="togglePassword()">  
+            SHOW  
+        </span>  
+    </div>  
+
+    <button type="submit">LOGIN →</button>  
+
+</form>  
+
+<p id="message"></p>  
+
+<div class="footer">  
+    © 2026 Keysha Login System  
+</div>
+
+</div>  <script>  
+function togglePassword() {  
+    const pass = document.getElementById("password");  
+    const toggle = document.querySelector(".toggle");  
+  
+    if (pass.type === "password") {  
+        pass.type = "text";  
+        toggle.innerText = "HIDE";  
+    } else {  
+        pass.type = "password";  
+        toggle.innerText = "SHOW";  
+    }  
+}  
+  
+document.getElementById("loginForm")  
+.addEventListener("submit", function(e) {  
+  
+    e.preventDefault();  
+  
+    const user = document.getElementById("username").value;  
+    const pass = document.getElementById("password").value;  
+    const msg = document.getElementById("message");  
+  
+    if (  
+        user === "keyshaaulia04" &&  
+        pass === "12345678auliakysh"  
+    ) {  
+        msg.style.color = "#4ade80";  
+        msg.innerText = "✓ Login berhasil! Selamat datang.";  
+  
+    } else {  
+        msg.style.color = "#fb7185";  
+        msg.innerText = "✕ Username atau password salah!";  
+    }  
+});  
+</script>  </body>  
+</html>
